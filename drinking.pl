@@ -1,4 +1,4 @@
-#!/usr/bin/perl -I/home/anthrocon/code/lib
+#!/usr/bin/perl -I/home/httpd/code/lib
 
 use Anthrocon::SQL;
 use Anthrocon::Time;
