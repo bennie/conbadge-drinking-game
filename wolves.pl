@@ -2,9 +2,15 @@
 
 use strict;
 
-while ( my $line = <STDIN> ) {
-  # next unless $line =~ /(wh?[ou]+[lf](ph|[fv]{0,2})(i?e)?([ei]n)?(e?y)?)/i;
-  # next unless $line =~ /([wv]h?[ouy]+(l?f|lv|l?ph)+(i?e)?([ei]n)?(e?y)?)/i;
-  next unless $line =~ /((v[ou]lf|wh?[ouy]+(l?f|lv|l?ph)+(i?e)?)([ei]n)?(e?y)?)/i;
-  print lc($1), "\n";
+open INFILE, '<wolves.txt';
+
+while ( my $test = <INFILE> ) {
+  next if $test =~ /^#/o;
+  chomp $test;
+  my $match = $test =~ /((v|wh|w)+(0|o|ou|u|y)+(l*(f|ph|(?<!vol)v))+(ei?|ie|in|y)?)/i ?1:0;
+  my $caught = $1;
+  my $perfect = $test eq $caught ? 1:0;
+  print "$match : $perfect : $test : $caught\n";
 }
+
+close INFILE;

@@ -1,6 +1,10 @@
-# badgenames
 volf
 vulf
+vulfe
+vulff
+vvolf
+vvulf
+w0lf
 wholf
 whuff
 wofie
@@ -18,29 +22,28 @@ woof
 woofe
 woofie
 woulf
+wov
+wuf
+wufei
 wuff
 wuffie
 wuffy
 wulf
 wulfe
 wulff
+wulffe
 wulfy
-wulve
-wylfin
-# FA
-wyyph
-vulff
-vvolf
-vvulf
-vulfe
-volf
-w0lf
-wulph
-wulphie
 wullf
 wullfie
-wuulf
+wulph
+wulphie
+wulve
 wuuf
-wuf
-wufei
-wulffe
+wuulf
+wwolf
+wwulf
+wylfin
+wyve
+wyyph
+# No
+volve

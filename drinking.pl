@@ -43,7 +43,7 @@ $animals{squirrel}  = [ qr/squirrel/i ];
 $animals{tiger}     = [ qr/t[iy]g(re|e?r)/i, qr/tora/i ];
 $animals{unicorn}   = [ qr/unicorn/i ];
 $animals{weasel}    = [ qr/weasel/i, qr/mongoose/i ];
-$animals{wolf}      = [ qr/wh?[ouy]+(l?f|lv|l?ph)+(i?e)?([ei]n)?(e?y)?/i, qr/lupin(e)?/i ];
+$animals{wolf}      = [ qr/(v|wh|w)+(0|o|ou|u|y)+(l*(f|ph|(?<!vol)v))+(ei?|ie|in|y)?/i, qr/lupin(e)?/i ];
 $animals{woodchuck} = [ qr/woodchuck/i ];
 $animals{zebra}     = [ qr/zebra/i ];
 
