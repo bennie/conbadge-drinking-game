@@ -66,7 +66,7 @@ $animals{zebra}     = [ qr/zebra/i ];
 ### Colors & metals
 
 my %colors;
-map {$colors{$_} = [ qr/$_/i ];} qw/black blue brown emerald green grey red white yellow/;
+map {$colors{$_} = [ qr/$_/i ];} qw/black blue brown emerald green grey red white yellow rainbow/;
 
 $colors{purple} = [ qr/pu?rple?/i ];
 
@@ -88,6 +88,7 @@ $celestials{god}     = [ qr/god/i ];
 
 $celestials{moon}    = [ qr/moon/i ];
 $celestials{thunder} = [ qr/thunder/i ];
+$celestials{rainbow} = [ qr/rainbow/i ];
 $celestials{sky}     = [ qr/\bsky/i ];
 $celestials{shadow}  = [ qr/shadow/i ];
 $celestials{snow}    = [ qr/snow/i ];
@@ -109,11 +110,11 @@ $tests{season}    = \%seasons;
 $tests{element}   = \%elements;
 $tests{celestial} = \%celestials;
 
-$tests{opts}      = \%opts;
+$tests{'heavy drinker item'} = \%opts if $cgi->param('heavy') eq 'on';
 
 ### Done with test
 
-print $cgi->start_html;
+print $cgi->start_html( -title => 'Your drinking score.' );
 
 my $drinks = 0;
 my %matches;
@@ -129,14 +130,48 @@ for my $category ( keys %tests ) {
   }
 }
 
-print $cgi->p("$badgename is worth $drinks drinks.");
+my $score = '
+<center><table width="500" style="border:1px solid black; background-color:white; color:black;">
+<tr><td align="center">
 
-for my $category ( sort keys %matches ) {
-  for my $type ( sort keys %{$matches{$category}} ) {
-    for my $match ( sort keys %{$matches{$category}{$type}} ) {
-      print $cgi->p("$category -> $type -> \"$match\" is worth a drink!");
+<font size="5">The Furry ConBadge Drinking Game</font><br /><br />
+<img src="http://www.crescendo.net/fun/conbadge/drinkgame2.jpg"><br /><br />
+
+<small>My badgename</small><br />
+<tt><b><font size="6">'.$badgename.'</font></b></tt><br />
+<small>is worth</small><br />
+<b><font size="5">'.$drinks.' drink'.($drinks == 1 ? '':'s').'!</font></b><br /><br /><tt>';
+
+if ( $drinks < 1 ) {
+  $score .= "It looks like you've got a fairly creative badge name.<br />No drinks for you.<br />";
+} else {
+  for my $category ( sort keys %matches ) {
+    for my $type ( sort keys %{$matches{$category}} ) {
+      for my $match ( sort keys %{$matches{$category}{$type}} ) {
+        $score .= "<i><u>$match</u></i> is $category ($type) and is worth a drink!" . $cgi->br;
+      }
     }
   }
 }
+
+$score .= '<br /></tt></td></tr></table>';
+
+print $score;
+
+# Final cleanup of score
+$score .= "</center>";
+$score =~ s/\n//g;
+
+print "<br /><br />";
+
+print '<b>Share your score on your blog, LJ, etc:</b><br><textarea rows=5 cols=60 onclick=\'this.select();\'>',
+      $score, '</textarea><br /><b>Click in the pane above, and copy and paste into your journal!</b>';
+
+print "<br /><br /><br />";
+
+print '<form action="drinking.cgi">
+<input type="text" name="badgename" /><input type="submit" value="Check another!" /><br />
+<input type=checkbox name=heavy checked /> I\'m a heavy drinker
+</form>';
 
 print $cgi->end_html;
