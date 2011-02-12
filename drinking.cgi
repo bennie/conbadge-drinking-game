@@ -1,6 +1,22 @@
 #!/usr/bin/perl
 
+use CGI;
+use CGI::Carp qw/fatalsToBrowser/;
 use strict;
+
+### Handle errors quickly
+
+my $cgi = new CGI;
+my $badgename = $cgi->param('badgename');
+
+if ( $badgename ) {
+  print $cgi->header;
+} else {
+  print $cgi->redirect('index.html');
+  exit;
+}
+
+### TESTS
 
 my %animals;
 
@@ -94,6 +110,8 @@ $tests{element}   = \%elements;
 $tests{celestial} = \%celestials;
 
 $tests{opts}      = \%opts;
+
+### Done with test
 
 # Load unique badge names
 
