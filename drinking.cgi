@@ -154,12 +154,19 @@ if ( $drinks < 1 ) {
   }
 }
 
-$score .= '<br /></tt></td></tr></table>';
+$score .= '<br /></tt>
+<small><a href="http://www.crescendo.net/fun/conbadge/">http://www.crescendo.net/fun/conbadge/</a></small>
+</td></tr></table>';
 
 print $score;
 
 # Final cleanup of score
-$score .= "</center>";
+$score .= '<form action="http://www.crescendo.net/fun/conbadge/drinking.cgi">
+<input type="text" name="badgename" /><input type="submit" value="Check my badgename!" /><br />
+<small><input type=checkbox name=heavy checked /> I\'m a heavy drinker</small>
+</form></center>';
+
+
 $score =~ s/\n//g;
 
 print "<br /><br />";
