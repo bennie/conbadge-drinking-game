@@ -113,76 +113,30 @@ $tests{opts}      = \%opts;
 
 ### Done with test
 
-# Load unique badge names
-
-my %unique;
-map { chomp; $unique{$_}++ } <STDIN>;
-
-my @names = sort { lc($a) cmp lc($b) } keys %unique;
-%unique = ();
-
-### Run the tests
+print $cgi->start_html;
 
 my $drinks = 0;
 my %matches;
-my %scores;
-my %parses;
 
-for my $name (@names) {
-  for my $category ( keys %tests ) {
-    for my $type ( keys %{$tests{$category}} ) {
-      for my $test (@{$tests{$category}{$type}}) {
-        while ( $name =~ /($test)/g ) { 
-          $drinks++;
-          $matches{$category}{$type}{$name}++;
-          $scores{$name}++;
-          $parses{$name}{$1}++;
-        }
+for my $category ( keys %tests ) {
+  for my $type ( keys %{$tests{$category}} ) {
+    for my $test (@{$tests{$category}{$type}}) {
+      while ( $badgename =~ /($test)/g ) { 
+        $drinks++;
+        $matches{$category}{$type}{$1}++;
       }
     }
   }
-  if ( not defined $scores{$name} ) { print "No Score: $name\n"; }
-        #print "$name : $scores{$name}\n";
 }
 
-print "$drinks drinks.\n";
+print $cgi->p("$badgename is worth $drinks drinks.");
 
 for my $category ( sort keys %matches ) {
   for my $type ( sort keys %{$matches{$category}} ) {
-    print "$category -> $type -> \n";
-    print join(", ", sort keys %{$matches{$category}{$type}});
-    print "\n\n";
+    for my $match ( sort keys %{$matches{$category}{$type}} ) {
+      print $cgi->p("$category -> $type -> \"$match\" is worth a drink!");
+    }
   }
 }
 
-## Best score?
-
-my $best = 0;
-
-for my $name ( keys %scores ) {
-  $best = $scores{$name} if $scores{$name} > $best;
-}
-
-print "The best score is $best. The following names scored this:\n";
-
-for my $name ( sort { lc($a) cmp lc($b) } keys %scores ) {
-  next unless $scores{$name} == $best;
-  print "\t$name\n";
-
-  for my $parse ( keys %{$parses{$name}} ) {
-    print "\t -> $parse\n";
-  }
-}
-
-$best--;
-
-print "The runners-up are $best. The following names scored this:\n";
-
-for my $name ( sort { lc($a) cmp lc($b) } keys %scores ) {
-  next unless $scores{$name} == $best;
-  print "\t$name\n";
-
-  for my $parse ( keys %{$parses{$name}} ) {
-    #print "\t -> $parse\n";
-  }
-}
+print $cgi->end_html;
