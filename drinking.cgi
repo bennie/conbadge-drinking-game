@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$revision: 1.0 $')[1];
+my $version = ( split ' ', '$Revision: 1.7 $')[1];
 
 ### TESTS
 
