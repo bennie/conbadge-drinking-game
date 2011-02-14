@@ -16,6 +16,8 @@ if ( $badgename ) {
   exit;
 }
 
+my $version = ( split ' ', '$revision: 1.0 $')[1];
+
 ### TESTS
 
 my %animals;
@@ -33,7 +35,7 @@ $animals{cougar}    = [ qr/couga?r/i ];
 $animals{coyote}    = [ qr/([ck]o)?yote/i ];
 $animals{deer}      = [ qr/deer/i ];
 $animals{dog}       = [ qr/can[iu]{0,2}s/i, qr/collie/i, qr/dog/i, qr/husky/i, qr/pup(py)?/i, qr/hound/i, qr/canine/i, qr/dingo/i ];
-$animals{dragon}    = [ qr/dragon/i, qr/hydra/i, qr/wyvern/i ];
+$animals{dragon}    = [ qr/dra[cg]on/i, qr/hydra/i, qr/wyvern/i ];
 $animals{ferret}    = [ qr/ferret/i ];
 $animals{fox}       = [ qr/fox/i, qr/fennec/i, qr/kitsune/i, qr/vixen/i, qr/vulpin(e)?/i, qr/vulpe(s)?/i ];
 $animals{gazelle}   = [ qr/gazelle/i ];
@@ -59,7 +61,7 @@ $animals{squirrel}  = [ qr/squirrel/i ];
 $animals{tiger}     = [ qr/t[iy]g(re|e?r)/i, qr/tora/i ];
 $animals{unicorn}   = [ qr/unicorn/i ];
 $animals{weasel}    = [ qr/weasel/i, qr/mongoose/i ];
-$animals{wolf}      = [ qr/(v|wh|w)+(0|o|ou|u|y)+(l*(f|ph|(?<!vol)v))+(ei?|ie|in|y)?/i, qr/lupin(e)?/i ];
+$animals{wolf}      = [ qr/(v|wh|w)+(0|o|ou|u|y)+(l*(f|ph|(?<!vol)v))+(ei?|ie|in|y)?/i, qr/lupin(e)?/i, qr/fenris/i ];
 $animals{woodchuck} = [ qr/woodchuck/i ];
 $animals{zebra}     = [ qr/zebra/i ];
 
@@ -82,7 +84,7 @@ map {$elements{$_} = [ qr/$_/i ];} qw/earth wind fire flame water/;
 my %celestials;
 
 $celestials{angel}   = [ qr/angel/i ];
-$celestials{anubis}  = [ qr/anubis/i ];
+$celestials{gods}    = [ qr/anubis/i, qr/osiris/i, qr/sirius/i, qr/fenris/i ];
 $celestials{demon}   = [ qr/demon/i ];
 $celestials{god}     = [ qr/god/i ];
 
@@ -97,7 +99,12 @@ $celestials{storm}   = [ qr/storm/i ];
 $celestials{sun}     = [ qr/\bsun/i ];
 
 my %opts;
-$opts{wyld} = [ qr/wyld/i ];
+$opts{cutesy}   = [ qr/wyld/i, qr/sparkle/i, qr/fluffy/i ];
+$opts{pedantic} = [ qr/\bthe\b/ ];
+$opts{title}   = [ qr/baron/i, qr/sir/ ];
+
+# Drink for every apostraphe over 1
+# Drink for every umlaute
 
 ## Assemble the tests
 
@@ -155,7 +162,7 @@ if ( $drinks < 1 ) {
 }
 
 $score .= '<br /></tt>
-<small><a href="http://www.crescendo.net/fun/conbadge/">http://www.crescendo.net/fun/conbadge/</a></small>
+<small><a href="http://www.crescendo.net/fun/conbadge/">http://www.crescendo.net/fun/conbadge/</a> v'.$version.'</small>
 </td></tr></table>';
 
 print $score;
