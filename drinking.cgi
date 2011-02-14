@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.9 $')[1];
+my $version = ( split ' ', '$Revision: 1.10 $')[1];
 
 ### TESTS
 
@@ -99,9 +99,10 @@ $celestials{storm}   = [ qr/storm/i ];
 $celestials{sun}     = [ qr/\bsun/i ];
 
 my %opts;
-$opts{cutesy}   = [ qr/wyld/i, qr/sparkle/i, qr/fluffy/i ];
-$opts{pedantic} = [ qr/\bthe\b/ ];
-$opts{title}   = [ qr/baron/i, qr/sir/ ];
+$opts{cutesy}   = [ qr/wyld/i, qr/sparkle/i, qr/fluffy/i, qr/yiff/i ];
+$opts{pedantic} = [ qr/\bthe\b/i ];
+$opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i ];
+$opts{dorsei}   = [ qr/\b\(?di\)?\b/i ];
 
 # Drink for every apostraphe over 1
 # Drink for every umlaute
