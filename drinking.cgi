@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.13 $')[1];
+my $version = ( split ' ', '$Revision: 1.14 $')[1];
 
 ### TESTS
 
@@ -124,7 +124,7 @@ $tests{'heavy drinker item'} = \%opts if $cgi->param('heavy') eq 'on';
 
 ### Done with test
 
-print $cgi->start_html( -title => 'Your drinking score.' );
+print $cgi->start_html( -title => 'Your drinking score.', -bgcolor=>'#FFFFFF' );
 
 my $drinks = 0;
 my %matches;
