@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.10 $')[1];
+my $version = ( split ' ', '$Revision: 1.11 $')[1];
 
 ### TESTS
 
@@ -59,6 +59,7 @@ $animals{skunk}     = [ qr/skunk(ie)?/i ];
 $animals{snake}     = [ qr/snake/i, qr/python/i ];
 $animals{squirrel}  = [ qr/squirrel/i ];
 $animals{tiger}     = [ qr/t[iy]g(re|e?r)/i, qr/tora/i ];
+$animals{turtle}    = [ qr/turtle/i ];
 $animals{unicorn}   = [ qr/unicorn/i ];
 $animals{weasel}    = [ qr/weasel/i, qr/mongoose/i ];
 $animals{wolf}      = [ qr/(v|wh|w)+(0|o|ou|u|y)+(l*(f|ph|(?<!vol)v))+(ei?|ie|in|y)?/i, qr/lupin(e)?/i, qr/fenris/i ];
@@ -188,6 +189,8 @@ print '<form action="drinking.cgi">
 <input type="text" name="badgename" /><input type="submit" value="Check another!" /><br />
 <input type=checkbox name=heavy checked /> I\'m a heavy drinker
 </form>';
+
+print "<br /><small>The rules are <a href=\"index.html\">here</a>.</small>";
 
 print $cgi->end_html;
 
