@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.7 $')[1];
+my $version = ( split ' ', '$Revision: 1.8 $')[1];
 
 ### TESTS
 
@@ -189,3 +189,7 @@ print '<form action="drinking.cgi">
 </form>';
 
 print $cgi->end_html;
+
+open OUTFILE '>>', '/var/www/crescendo.net/main/fun/conbadge/badges.log';
+print OUTFILE "$version\t$badgename\n";
+close OUTFILE;
