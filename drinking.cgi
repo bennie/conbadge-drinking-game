@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.14 $')[1];
+my $version = ( split ' ', '$Revision: 1.15 $')[1];
 
 ### TESTS
 
@@ -45,6 +45,7 @@ $animals{horse}     = [ qr/horse/i, qr/pon[iy]/i ];
 $animals{hyena}     = [ qr/hyena/i ];
 $animals{jaguar}    = [ qr/jaguar/i ];
 $animals{jackal}    = [ qr/jackal/i ];
+$animals{koala}     = [ qr/koala/i ];
 $animals{lion}      = [ qr/lion/i ];
 $animals{lizard}    = [ qr/lizard/i ];
 $animals{lynx}      = [ qr/lynx/i ];
@@ -70,7 +71,7 @@ $animals{zebra}     = [ qr/zebra/i ];
 ### Colors & metals
 
 my %colors;
-map {$colors{$_} = [ qr/$_/i ];} qw/black blue brown emerald green grey red white yellow rainbow/;
+map {$colors{$_} = [ qr/$_/i ];} qw/black blue brown emerald green grey orange red white yellow rainbow/;
 
 $colors{purple} = [ qr/pu?rple?/i ];
 
@@ -102,9 +103,11 @@ $celestials{sun}     = [ qr/\bsun/i ];
 
 my %opts;
 $opts{cutesy}   = [ qr/wyld/i, qr/sparkle/i, qr/fluffy/i, qr/yiff/i ];
-$opts{pedantic} = [ qr/\bthe\b/i ];
-$opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i ];
+$opts{dark}     = [ qr/dark/i ];
 $opts{Dorsai}   = [ qr/\b\(?di\)?\b/i, qr/dorsai/i ];
+$opts{pedantic} = [ qr/\bthe\b/i ];
+$opts{size}     = [ qr/mega/i, qr/micro/i, qr/magna/i, qr/little/i, qr/tiny/i, qr/mini/i ];
+$opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i ];
 
 # Drink for every apostraphe over 1
 # Drink for every umlaute
@@ -145,7 +148,7 @@ my $score = '
 <tr><td align="center">
 
 <font size="5">The Furry ConBadge Drinking Game</font><br /><br />
-<img src="http://www.crescendo.net/fun/conbadge/drinkgame2.jpg"><br /><br />
+<img src="http://www.crescendo.net/fun/conbadge/drinkgame2.jpg" width=300 height=201 /><br /><br />
 
 <small>My badgename</small><br />
 <tt><b><font size="6">'.$badgename.'</font></b></tt><br />
