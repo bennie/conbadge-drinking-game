@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.15 $')[1];
+my $version = ( split ' ', '$Revision: 1.16 $')[1];
 
 ### TESTS
 
@@ -199,5 +199,5 @@ print "<br /><small>The rules are <a href=\"index.html\">here</a>.</small>";
 print $cgi->end_html;
 
 open OUTFILE, '>>', '/var/www/crescendo.net/main/fun/conbadge/badges.log';
-print OUTFILE "$version\t$badgename\n";
+print OUTFILE time, "\t$version\t$badgename\n";
 close OUTFILE;
