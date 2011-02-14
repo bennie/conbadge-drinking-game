@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.11 $')[1];
+my $version = ( split ' ', '$Revision: 1.12 $')[1];
 
 ### TESTS
 
@@ -44,6 +44,7 @@ $animals{gryphon}   = [ qr/gryphon/i, qr/griff[io]n/i ];
 $animals{horse}     = [ qr/horse/i, qr/pon[iy]/i ];
 $animals{hyena}     = [ qr/hyena/i ];
 $animals{jaguar}    = [ qr/jaguar/i ];
+$animals{jackal}    = [ qr/jackal/i ];
 $animals{lion}      = [ qr/lion/i ];
 $animals{lizard}    = [ qr/lizard/i ];
 $animals{lynx}      = [ qr/lynx/i ];
