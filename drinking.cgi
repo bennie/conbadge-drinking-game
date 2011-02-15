@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.17 $')[1];
+my $version = ( split ' ', '$Revision: 1.18 $')[1];
 
 ### TESTS
 
@@ -102,7 +102,7 @@ $celestials{storm}   = [ qr/storm/i ];
 $celestials{sun}     = [ qr/\bsun/i ];
 
 my %opts;
-$opts{cutesy}   = [ qr/wyld/i, qr/sparkle/i, qr/fluffy/i, qr/yiff/i ];
+$opts{cutesy}   = [ qr/fluffy/i, qr/fur(ry)?(vert)?/i, qr/fuzzy/i, qr/yiff/i, qr/sparkl[ey]/i, qr/wyld/i  ];
 $opts{dark}     = [ qr/dark/i ];
 $opts{Dorsai}   = [ qr/\b\(?di\)?\b/i, qr/dorsai/i ];
 $opts{pedantic} = [ qr/\bthe\b/i ];
