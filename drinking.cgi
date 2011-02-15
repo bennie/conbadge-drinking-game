@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.21 $')[1];
+my $version = ( split ' ', '$Revision: 1.22 $')[1];
 
 ### TESTS
 
@@ -110,7 +110,7 @@ $opts{size}     = [ qr/mega/i, qr/micro/i, qr/magna/i, qr/little/i, qr/tiny/i, q
 $opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i ];
 
 $opts{hyphen}   = [ qr/-/i ];
-$opts{'multiple apostraphes'}   = [ qr/'.+?'/i ];
+$opts{'multiple apostrophes'}   = [ qr/'.+?'/i ];
 
 # Drink for every umlaute
 
