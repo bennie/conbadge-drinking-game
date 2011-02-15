@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.20 $')[1];
+my $version = ( split ' ', '$Revision: 1.21 $')[1];
 
 ### TESTS
 
@@ -37,7 +37,7 @@ $animals{deer}      = [ qr/deer/i ];
 $animals{dog}       = [ qr/can[iu]{0,2}s/i, qr/collie/i, qr/dog/i, qr/husky/i, qr/pup(py)?/i, qr/hound/i, qr/canine/i, qr/dingo/i ];
 $animals{dragon}    = [ qr/dra[cg]on/i, qr/hydra/i, qr/wyvern/i ];
 $animals{ferret}    = [ qr/ferret/i ];
-$animals{fox}       = [ qr/(ph|f)ox+y?/i, qr/fennec/i, qr/kitsune/i, qr/vixen/i, qr/vulpin(e)?/i, qr/vulpe(s)?/i ];
+$animals{fox}       = [ qr/fawks/i, qr/(ph|f)ox+y?/i, qr/fennec/i, qr/kitsune/i, qr/vixen/i, qr/vulpin(e)?/i, qr/vulpe(s)?/i ];
 $animals{gazelle}   = [ qr/gazelle/i ];
 $animals{goat}      = [ qr/goat/i ];
 $animals{gryphon}   = [ qr/gryphon/i, qr/griff[io]n/i ];
@@ -109,7 +109,9 @@ $opts{pedantic} = [ qr/\bthe\b/i ];
 $opts{size}     = [ qr/mega/i, qr/micro/i, qr/magna/i, qr/little/i, qr/tiny/i, qr/mini/i ];
 $opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i ];
 
-# Drink for every apostraphe over 1
+$opts{hyphen}   = [ qr/-/i ];
+$opts{'multiple apostraphes'}   = [ qr/'.+?'/i ];
+
 # Drink for every umlaute
 
 ## Assemble the tests
