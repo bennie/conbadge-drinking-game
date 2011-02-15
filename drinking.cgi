@@ -16,7 +16,7 @@ if ( $badgename ) {
   exit;
 }
 
-my $version = ( split ' ', '$Revision: 1.19 $')[1];
+my $version = ( split ' ', '$Revision: 1.20 $')[1];
 
 ### TESTS
 
@@ -82,7 +82,7 @@ my %seasons;
 map {$seasons{$_} = [ qr/$_/i ];} qw/spring summer fall winter/;
 
 my %elements;
-map {$elements{$_} = [ qr/$_/i ];} qw/earth wind fire flame water/;
+map {$elements{$_} = [ qr/$_/i ];} qw/earth wind fire flame water ice/;
 
 my %celestials;
 
