@@ -112,7 +112,10 @@ $opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i, qr/lady/i ];
 $opts{hyphen}   = [ qr/-/i ];
 $opts{'multiple apostrophes'}   = [ qr/'.+?'/i ];
 
-# Drink for every umlaute
+my %chars = ( A => 196, E => 203, I => 207, O => 214, U => 220, a => 228,
+              e => 235, i => 239, o => 246, u => 252, y => 255 );
+
+$opts{umlauts}  = [ map { chr($_) } map { $chars{$_} } keys %chars ];
 
 ## Assemble the tests
 
