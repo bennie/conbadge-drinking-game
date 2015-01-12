@@ -16,16 +16,18 @@ $animals{chipmunk}  = [ qr/chipmunk/i ];
 $animals{cougar}    = [ qr/couga?r/i ];
 $animals{coyote}    = [ qr/([ck]o)?yote/i ];
 $animals{deer}      = [ qr/deer/i ];
-$animals{dog}       = [ qr/can[iu]{0,2}s/i, qr/collie/i, qr/dog/i, qr/husky/i, qr/pup(py)?/i, qr/hound/i, qr/canine/i, qr/dingo/i ];
-$animals{dragon}    = [ qr/dragon/i, qr/hydra/i, qr/wyvern/i ];
+$animals{dog}       = [ qr/can[iu]{0,2}s/i, qr/collie/i, qr/dog/i, qr/husky/i, qr/pup(py)?/i, qr/hound/i, qr/canine/i, qr/dingo/i, qr/bitch/ ];
+$animals{dragon}    = [ qr/dra[cg]on/i, qr/hydra/i, qr/wyvern/i ];
 $animals{ferret}    = [ qr/ferret/i ];
-$animals{fox}       = [ qr/fox/i, qr/fennec/i, qr/kitsune/i, qr/vixen/i, qr/vulpin(e)?/i, qr/vulpe(s)?/i ];
+$animals{fox}       = [ qr/fawks/i, qr/(ph|f)ox+y?/i, qr/fennec/i, qr/kitsune/i, qr/vixen/i, qr/vulpin(e)?/i, qr/vulpe(s)?/i ];
 $animals{gazelle}   = [ qr/gazelle/i ];
 $animals{goat}      = [ qr/goat/i ];
 $animals{gryphon}   = [ qr/gryphon/i, qr/griff[io]n/i ];
 $animals{horse}     = [ qr/horse/i, qr/pon[iy]/i ];
 $animals{hyena}     = [ qr/hyena/i ];
 $animals{jaguar}    = [ qr/jaguar/i ];
+$animals{jackal}    = [ qr/jackal/i ];
+$animals{koala}     = [ qr/koala/i ];
 $animals{lion}      = [ qr/lion/i ];
 $animals{lizard}    = [ qr/lizard/i ];
 $animals{lynx}      = [ qr/lynx/i ];
@@ -41,6 +43,7 @@ $animals{skunk}     = [ qr/skunk(ie)?/i ];
 $animals{snake}     = [ qr/snake/i, qr/python/i ];
 $animals{squirrel}  = [ qr/squirrel/i ];
 $animals{tiger}     = [ qr/t[iy]g(re|e?r)/i, qr/tora/i ];
+$animals{turtle}    = [ qr/turtle/i ];
 $animals{unicorn}   = [ qr/unicorn/i ];
 $animals{weasel}    = [ qr/weasel/i, qr/mongoose/i ];
 $animals{wolf}      = [ qr/(v|wh|w)+(0|o|ou|u|y)+(l*(f|ph|(?<!vol)v))+(ei?|ie|in|y)?/i, qr/lupin(e)?/i ];
@@ -50,7 +53,7 @@ $animals{zebra}     = [ qr/zebra/i ];
 ### Colors & metals
 
 my %colors;
-map {$colors{$_} = [ qr/$_/i ];} qw/black blue brown emerald green grey red white yellow/;
+map {$colors{$_} = [ qr/$_/i ];} qw/black blue brown emerald green grey orange red white yellow rainbow/;
 
 $colors{purple} = [ qr/pu?rple?/i ];
 
@@ -61,17 +64,18 @@ my %seasons;
 map {$seasons{$_} = [ qr/$_/i ];} qw/spring summer fall winter/;
 
 my %elements;
-map {$elements{$_} = [ qr/$_/i ];} qw/earth wind fire flame water/;
+map {$elements{$_} = [ qr/$_/i ];} qw/earth wind fire flame water ice/;
 
 my %celestials;
 
 $celestials{angel}   = [ qr/angel/i ];
-$celestials{anubis}  = [ qr/anubis/i ];
+$celestials{gods}    = [ qr/anubis/i, qr/osiris/i, qr/sirius/i, qr/fenris/i ];
 $celestials{demon}   = [ qr/demon/i ];
 $celestials{god}     = [ qr/god/i ];
 
 $celestials{moon}    = [ qr/moon/i ];
 $celestials{thunder} = [ qr/thunder/i ];
+$celestials{rainbow} = [ qr/rainbow/i ];
 $celestials{sky}     = [ qr/\bsky/i ];
 $celestials{shadow}  = [ qr/shadow/i ];
 $celestials{snow}    = [ qr/snow/i ];
@@ -80,7 +84,17 @@ $celestials{storm}   = [ qr/storm/i ];
 $celestials{sun}     = [ qr/\bsun/i ];
 
 my %opts;
-$opts{wyld} = [ qr/wyld/i ];
+$opts{cutesy}   = [ qr/fluffy/i, qr/fur(ry)?(vert)?/i, qr/fuzzy/i, qr/yiff/i, qr/sparkl[ey]/i, qr/wyld/i  ];
+$opts{dark}     = [ qr/dark/i ];
+$opts{Dorsai}   = [ qr/\b\(?di\)?\b/i, qr/dorsai/i ];
+$opts{pedantic} = [ qr/\bthe\b/i ];
+$opts{size}     = [ qr/mega/i, qr/micro/i, qr/magna/i, qr/little/i, qr/tiny/i, qr/mini/i ];
+$opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i ];
+
+$opts{hyphen}   = [ qr/-/i ];
+$opts{'multiple apostrophes'}   = [ qr/'.+?'/i ];
+
+# Drink for every umlaute
 
 ## Assemble the tests
 
