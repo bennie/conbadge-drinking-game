@@ -107,7 +107,7 @@ $opts{dark}     = [ qr/dark/i ];
 $opts{Dorsai}   = [ qr/\b\(?di\)?\b/i, qr/dorsai/i ];
 $opts{pedantic} = [ qr/\bthe\b/i ];
 $opts{size}     = [ qr/mega/i, qr/micro/i, qr/magna/i, qr/little/i, qr/tiny/i, qr/mini/i ];
-$opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i ];
+$opts{title}    = [ qr/baron/i, qr/sir/i, qr/captain/i, qr/lord/i, qr/lady/i ];
 
 $opts{hyphen}   = [ qr/-/i ];
 $opts{'multiple apostrophes'}   = [ qr/'.+?'/i ];
